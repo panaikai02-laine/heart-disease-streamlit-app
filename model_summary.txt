@@ -1,0 +1,14 @@
+Heart Disease Risk Prediction with Explainable AI
+Best Model: Logistic Regression
+
+Top 10 Features Used:
+- HighBP
+- BMI
+- Age
+- Smoker
+- Diabetes
+- PhysActivity
+- HighChol
+- GenHlth
+- Stroke
+- Sex
