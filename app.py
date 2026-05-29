@@ -301,7 +301,7 @@ st.markdown("""
 # ------------------------------------------------------------
 # LOAD FINAL ARTIFACTS
 # ------------------------------------------------------------
-ARTIFACT_FOLDER = "final_artifacts"
+ARTIFACT_FOLDER = "."
 
 best_model = joblib.load(os.path.join(ARTIFACT_FOLDER, "best_model.pkl"))
 minmax_scaler = joblib.load(os.path.join(ARTIFACT_FOLDER, "minmax_scaler.pkl"))
