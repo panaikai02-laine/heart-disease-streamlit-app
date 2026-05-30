@@ -365,38 +365,45 @@ div.stButton > button:hover {
     margin-top: 18px;
 }
 
+.stApp {
+    position: relative;
+}
+
+/* Small repeated medical trace pattern - upper right */
 .stApp::before {
     content: "";
     position: fixed;
-    top: 70px;
-    right: 35px;
-    width: 330px;
-    height: 330px;
-    opacity: 0.10;
+    top: 40px;
+    right: 0;
+    width: 520px;
+    height: 360px;
     pointer-events: none;
     z-index: 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    filter: drop-shadow(0 0 18px rgba(125, 211, 252, 0.22));
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='none'><path d='M95 48v54c0 34 24 58 55 58s55-24 55-58V48' stroke='%237dd3fc' stroke-width='4' stroke-linecap='round' stroke-dasharray='4 9'/><circle cx='95' cy='40' r='14' stroke='%23ffffff' stroke-width='4' fill='none'/><circle cx='205' cy='40' r='14' stroke='%23ffffff' stroke-width='4' fill='none'/><path d='M150 160v28c0 34 20 59 54 59 30 0 50-19 50-46 0-22-15-36-34-36-16 0-29 12-29 27 0 14 10 24 24 24 10 0 18-7 18-17' stroke='%2386efac' stroke-width='4' stroke-linecap='round' stroke-dasharray='3 8'/><circle cx='223' cy='211' r='16' stroke='%23fde68a' stroke-width='4' fill='none'/></svg>");
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90' fill='none'><path d='M28 14v18c0 12 8 20 18 20s18-8 18-20V14' stroke='%237dd3fc' stroke-width='2.4' stroke-linecap='round' stroke-dasharray='2 5'/><circle cx='28' cy='12' r='4' stroke='%23ffffff' stroke-width='2' opacity='0.65'/><circle cx='64' cy='12' r='4' stroke='%23ffffff' stroke-width='2' opacity='0.65'/><path d='M46 52v8c0 12 8 18 18 18 8 0 14-5 14-13 0-6-4-10-9-10-4 0-8 3-8 7 0 3 2 6 6 6' stroke='%2386efac' stroke-width='2.2' stroke-linecap='round' stroke-dasharray='2 5'/></svg>");
+    background-size: 92px 92px;
+    background-repeat: repeat;
+    filter: drop-shadow(0 0 8px rgba(125, 211, 252, 0.28));
 }
 
+/* Small repeated nurse chart pattern - lower left */
 .stApp::after {
     content: "";
     position: fixed;
-    left: 30px;
-    bottom: 35px;
-    width: 300px;
-    height: 300px;
-    opacity: 0.09;
+    left: 0;
+    bottom: 10px;
+    width: 560px;
+    height: 380px;
     pointer-events: none;
     z-index: 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    filter: drop-shadow(0 0 18px rgba(147, 197, 253, 0.20));
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='none'><rect x='72' y='58' width='156' height='192' rx='18' stroke='%2393c5fd' stroke-width='4' stroke-dasharray='4 9'/><rect x='112' y='35' width='76' height='30' rx='10' stroke='%23ffffff' stroke-width='4' stroke-dasharray='4 9'/><path d='M96 118h24l18-22 24 50 20-30h24' stroke='%2386efac' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='3 8'/><line x1='96' y1='176' x2='205' y2='176' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/><line x1='96' y1='201' x2='190' y2='201' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/><line x1='96' y1='226' x2='170' y2='226' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/></svg>");
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='95' height='95' viewBox='0 0 95 95' fill='none'><rect x='25' y='18' width='45' height='58' rx='6' stroke='%2393c5fd' stroke-width='2.3' stroke-dasharray='2 5'/><rect x='36' y='10' width='23' height='10' rx='3' stroke='%23ffffff' stroke-width='2' stroke-dasharray='2 5' opacity='0.65'/><path d='M31 42h8l6-9 8 20 7-12h8' stroke='%2386efac' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='2 5'/><line x1='31' y1='60' x2='66' y2='60' stroke='%237dd3fc' stroke-width='2' stroke-dasharray='2 5'/><line x1='31' y1='68' x2='59' y2='68' stroke='%237dd3fc' stroke-width='2' stroke-dasharray='2 5'/></svg>");
+    background-size: 96px 96px;
+    background-repeat: repeat;
+    filter: drop-shadow(0 0 8px rgba(147, 197, 253, 0.25));
 }
 
+/* Keep main content above background pattern */
 [data-testid="stAppViewContainer"] > .main {
     position: relative;
     z-index: 2;
@@ -404,19 +411,21 @@ div.stButton > button:hover {
 
 @media (max-width: 768px) {
     .stApp::before {
-        width: 180px;
-        height: 180px;
-        top: 80px;
-        right: 8px;
-        opacity: 0.07;
+        width: 260px;
+        height: 220px;
+        top: 70px;
+        right: 0;
+        opacity: 0.08;
+        background-size: 76px 76px;
     }
 
     .stApp::after {
-        width: 170px;
-        height: 170px;
-        left: 8px;
-        bottom: 10px;
-        opacity: 0.06;
+        width: 270px;
+        height: 230px;
+        left: 0;
+        bottom: 0;
+        opacity: 0.08;
+        background-size: 78px 78px;
     }
 }
 
