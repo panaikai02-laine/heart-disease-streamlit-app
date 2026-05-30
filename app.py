@@ -1007,34 +1007,47 @@ with st.sidebar:
         )
 
     elif selected_menu == "Age Mapping Guide":
-        st.markdown("""
-        <div style="
-            padding: 16px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.10);
-        ">
-            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
-                Age Mapping Guide
-            </div>
-            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
-                1 = 18–24<br>
-                2 = 25–29<br>
-                3 = 30–34<br>
-                4 = 35–39<br>
-                5 = 40–44<br>
-                6 = 45–49<br>
-                7 = 50–54<br>
-                8 = 55–59<br>
-                9 = 60–64<br>
-                10 = 65–69<br>
-                11 = 70–74<br>
-                12 = 75–79<br>
-                13 = 80 or older
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        age_items = [
+            ("1", "18–24"),
+            ("2", "25–29"),
+            ("3", "30–34"),
+            ("4", "35–39"),
+            ("5", "40–44"),
+            ("6", "45–49"),
+            ("7", "50–54"),
+            ("8", "55–59"),
+            ("9", "60–64"),
+            ("10", "65–69"),
+            ("11", "70–74"),
+            ("12", "75–79"),
+            ("13", "80 or older")
+        ]
 
+        age_html = ""
+
+        for code, label in age_items:
+            age_html += (
+                f'<div style="display:flex; justify-content:space-between; align-items:center; '
+                f'padding:9px 11px; margin-bottom:8px; border-radius:10px; '
+                f'background:rgba(255,255,255,0.045); '
+                f'border:1px solid rgba(255,255,255,0.08); '
+                f'color:#dbe4f0; font-size:13px; font-weight:600;">'
+                f'<span>Age Group {code}</span>'
+                f'<span style="color:#93c5fd;">{label}</span>'
+                f'</div>'
+            )
+
+        st.markdown(
+            f'<div style="padding:18px 18px 24px 18px; border-radius:16px; '
+            f'background:rgba(255,255,255,0.045); '
+            f'border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
+            f'<div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:16px;">'
+            f'Age Mapping Guide'
+            f'</div>'
+            f'{age_html}'
+            f'</div>',
+            unsafe_allow_html=True
+        )
     elif selected_menu == "Model Evaluation":
         metrics_display = model_metrics[[
             "Model", "Accuracy", "Recall", "F1-score", "ROC-AUC"
