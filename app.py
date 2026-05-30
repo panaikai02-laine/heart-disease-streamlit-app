@@ -708,27 +708,23 @@ def show_footer():
     )
 
 
-st.markdown("""
-<div class="hero-card">
-    <div class="hero-visual">
-        <div class="hero-heart-wrap">
-            <span class="medical-heart"><span class="heart-symbol">🫀</span></span>
-        </div>
-    </div>
-
-    <div class="hero-content">
-        <div class="hero-badge">AI-Powered Health Risk Screening</div>
-        <div class="main-title">
-            Heart Disease Risk Prediction<br>
-            <span class="title-accent">with Explainable AI</span>
-        </div>
-        <div class="subtitle">
-            Predicts HeartDiseaseorAttack risk using the Top 10 selected features,
-            trained model, explanation details, and lifestyle recommendations.
-        </div>
-    </div>
+st.markdown("""<div class="hero-card">
+<div class="hero-visual">
+<div class="hero-heart-wrap">
+<span class="medical-heart"><span class="heart-symbol">🫀</span></span>
 </div>
-""", unsafe_allow_html=True)
+</div>
+<div class="hero-content">
+<div class="hero-badge">AI-Powered Health Risk Screening</div>
+<div class="main-title">
+Heart Disease Risk Prediction<br>
+<span class="title-accent">with Explainable AI</span>
+</div>
+<div class="subtitle">
+Predicts HeartDiseaseorAttack risk using the Top 10 selected features, trained model, explanation details, and lifestyle recommendations.
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
