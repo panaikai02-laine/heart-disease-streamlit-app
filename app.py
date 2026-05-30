@@ -624,9 +624,17 @@ st.markdown("""
 }
 
 .disclaimer-track {
-    display: inline-flex;
-    gap: 70px;
-    animation: tickerMove 26s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: tickerMove 32s linear infinite;
+}
+
+.disclaimer-group {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding-right: 80px;
+    flex-shrink: 0;
 }
 
 .disclaimer-text {
@@ -636,10 +644,10 @@ st.markdown("""
 }
 
 @keyframes tickerMove {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
+    to {
         transform: translateX(-50%);
     }
 }
@@ -650,19 +658,26 @@ st.markdown("""
     }
 
     .disclaimer-track {
-        animation-duration: 30s;
+        animation-duration: 38s;
     }
 }
 </style>
 
 <div class="disclaimer-ticker">
     <div class="disclaimer-track">
-        <div class="disclaimer-text">
-            Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.
+
+        <div class="disclaimer-group">
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
         </div>
-        <div class="disclaimer-text">
-            Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.
+
+        <div class="disclaimer-group">
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
+            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
         </div>
+
     </div>
 </div>
 """, unsafe_allow_html=True)
