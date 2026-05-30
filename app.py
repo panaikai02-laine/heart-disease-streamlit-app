@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import os
 import html
-
+from streamlit_option_menu import option_menu
 
 
 st.set_page_config(
@@ -875,62 +875,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.sidebar.header("System Information")
-st.sidebar.write("**Model:** Best selected model from training")
-st.sidebar.write("**Best Model:** Logistic Regression")
-st.sidebar.write("**Input Features:** Top 10 selected features")
-st.sidebar.write("**Explanation:** SHAP-based feature importance")
-
-with st.sidebar.expander("Top 10 Features Used"):
-    for feature in top10_features:
-        st.write("•", feature)
-
-with st.sidebar.expander("Age Mapping Guide"):
-    st.write("1 = 18–24")
-    st.write("2 = 25–29")
-    st.write("3 = 30–34")
-    st.write("4 = 35–39")
-    st.write("5 = 40–44")
-    st.write("6 = 45–49")
-    st.write("7 = 50–54")
-    st.write("8 = 55–59")
-    st.write("9 = 60–64")
-    st.write("10 = 65–69")
-    st.write("11 = 70–74")
-    st.write("12 = 75–79")
-    st.write("13 = 80 or older")
-
-with st.sidebar.expander("Model Evaluation Metrics"):
-    metrics_display = model_metrics[[
-        "Model", "Accuracy", "Recall", "F1-score", "ROC-AUC"
-    ]].copy()
-
-    for col in ["Accuracy", "Recall", "F1-score", "ROC-AUC"]:
-        metrics_display[col] = (metrics_display[col] * 100).round(2).astype(str) + "%"
-
-    st.markdown("**Best Model:** Logistic Regression")
-    st.markdown("**Model Comparison:**")
-
-    for _, row in metrics_display.iterrows():
-        st.markdown(
-            f"""
-            <div style="
-                padding: 10px 12px;
-                margin-bottom: 10px;
-                border: 1px solid rgba(255,255,255,0.15);
-                border-radius: 10px;
-                background: rgba(255,255,255,0.04);
-                line-height: 1.7;
-            ">
-                <b>{row['Model']}</b><br>
-                Accuracy: {row['Accuracy']}<br>
-                Recall: {row['Recall']}<br>
-                F1-score: {row['F1-score']}<br>
-                ROC-AUC: {row['ROC-AUC']}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
 
 st.markdown("""
 <style>
