@@ -696,6 +696,17 @@ st.markdown("""
 <p>This system is only a screening support tool and not a medical diagnosis.</p>
 <span class="tip-badge">Reminder</span>
 </div>
+<div class="health-tip-card">
+<h4>📊 Understand Risk Levels</h4>
+<p>Low, medium, and high risk results are based on the model’s probability threshold.</p>
+<span class="tip-badge">Risk Guide</span>
+</div>
+
+<div class="health-tip-card">
+<h4>💡 Maintain Healthy Habits</h4>
+<p>Balanced meals, physical activity, proper rest, and routine check-ups can support heart health.</p>
+<span class="tip-badge">Wellness</span>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
