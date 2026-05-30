@@ -108,10 +108,43 @@ st.markdown("""
     min-width: 58px;
     height: 58px;
     border-radius: 18px;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.20));
-    border: 1px solid rgba(248, 113, 113, 0.35);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.24), rgba(127, 29, 29, 0.22));
+    border: 1px solid rgba(248, 113, 113, 0.38);
     box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
     font-size: 36px;
+    transform-origin: center;
+    animation: elegantHeartPump 1.65s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.30));
+    will-change: transform, box-shadow, filter;
+}
+
+@keyframes elegantHeartPump {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
+        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.30));
+    }
+
+    12% {
+        transform: scale(1.06);
+        box-shadow: 0 16px 40px rgba(239, 68, 68, 0.28);
+        filter: drop-shadow(0 0 11px rgba(239, 68, 68, 0.38));
+    }
+
+    22% {
+        transform: scale(0.99);
+    }
+
+    34% {
+        transform: scale(1.10);
+        box-shadow: 0 18px 46px rgba(239, 68, 68, 0.34);
+        filter: drop-shadow(0 0 14px rgba(239, 68, 68, 0.45));
+    }
+
+    48% {
+        transform: scale(1);
+        box-shadow: 0 14px 35px rgba(239, 68, 68, 0.22);
+    }
 }
 
 .subtitle {
