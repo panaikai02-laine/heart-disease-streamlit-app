@@ -38,70 +38,7 @@ st.markdown("""
         background-position: 0% 0%;
     }
 }
-/* Medical doodle background pattern */
-.stApp {
-    position: relative;
-    overflow-x: hidden;
-    isolation: isolate;
-}
 
-.stApp::before {
-    content: "";
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    width: 360px;
-    height: 300px;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.10;
-    background-repeat: repeat;
-    background-size: 48px 48px;
-    filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.12));
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none'><g stroke='%237dd3fc' stroke-opacity='0.35' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='M10 8v8c0 6 4 10 9 10s9-4 9-10V8' stroke-dasharray='1.4 3'/><circle cx='10' cy='7' r='2'/><circle cx='28' cy='7' r='2'/><path d='M19 26v5'/><circle cx='19' cy='34' r='3' stroke-dasharray='1.2 2.5'/><path d='M35 14l6 6'/><path d='M38 11l3 3'/><rect x='33' y='18' width='10' height='4' rx='2' stroke-dasharray='1.3 2.8'/></g></svg>");
-}
-
-.stApp::after {
-    content: "";
-    position: fixed;
-    left: 12px;
-    bottom: 12px;
-    width: 390px;
-    height: 300px;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.09;
-    background-repeat: repeat;
-    background-size: 50px 50px;
-    filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.10));
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'><g stroke='%2322d3ee' stroke-opacity='0.32' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' fill='none'><rect x='8' y='7' width='17' height='22' rx='3' stroke-dasharray='1.4 3'/><path d='M13 7h7'/><path d='M11 21h4l2-4 3 8 2-4h4' stroke-dasharray='1.3 2.5'/><rect x='32' y='9' width='11' height='6' rx='3' stroke-dasharray='1.3 2.7'/><path d='M37.5 9v6'/><path d='M34 30h10'/><path d='M39 25v14' stroke-dasharray='1.3 2.7'/><circle cx='39' cy='42' r='2.4' stroke-dasharray='1.2 2.4'/><path d='M10 39h8'/><path d='M14 35v8'/></g></svg>");
-}
-
-.block-container,
-[data-testid="stSidebar"],
-.right-tips-panel {
-    position: relative;
-    z-index: 2;
-}
-
-@media (max-width: 768px) {
-    .stApp::before {
-        width: 230px;
-        height: 210px;
-        top: 70px;
-        right: 6px;
-        opacity: 0.07;
-        background-size: 42px 42px;
-    }
-
-    .stApp::after {
-        width: 240px;
-        height: 210px;
-        left: 6px;
-        bottom: 6px;
-        opacity: 0.07;
-        background-size: 42px 42px;
-    }
 }
 [data-testid="stAppViewContainer"] {
     background: transparent !important;
