@@ -4,10 +4,7 @@ import joblib
 import os
 import html
 
-# ============================================================
-# STREAMLIT WEB APP
-# Heart Disease Risk Prediction with Explainable AI
-# ============================================================
+
 
 st.set_page_config(
     page_title="Heart Disease Risk Prediction",
@@ -15,9 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ------------------------------------------------------------
-# CSS DESIGN
-# ------------------------------------------------------------
+
 st.markdown("""
 <style>
 .main-title {
@@ -298,9 +293,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ------------------------------------------------------------
-# LOAD FINAL ARTIFACTS
-# ------------------------------------------------------------
+
 ARTIFACT_FOLDER = "."
 
 best_model = joblib.load(os.path.join(ARTIFACT_FOLDER, "best_model.pkl"))
@@ -313,9 +306,7 @@ bmi_index = top10_features.index("BMI")
 bmi_min_value = float(minmax_scaler.data_min_[bmi_index])
 bmi_max_value = float(minmax_scaler.data_max_[bmi_index])
 
-# ------------------------------------------------------------
-# HELPER FUNCTIONS
-# ------------------------------------------------------------
+
 def get_risk_level(probability):
     if probability < 0.20:
         return "Low Risk", "🟢", "result-low"
@@ -487,9 +478,7 @@ def show_footer():
         unsafe_allow_html=True
     )
 
-# ------------------------------------------------------------
-# HEADER
-# ------------------------------------------------------------
+
 st.markdown('<div class="main-title">❤️ Heart Disease Risk Prediction with Explainable AI</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="subtitle">Predicts HeartDiseaseorAttack risk using the Top 10 selected features, trained model, explanation details, and lifestyle recommendations.</div>',
@@ -528,9 +517,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ------------------------------------------------------------
-# SIDEBAR
-# ------------------------------------------------------------
+
 st.sidebar.header("System Information")
 st.sidebar.write("**Model:** Best selected model from training")
 st.sidebar.write("**Best Model:** Logistic Regression")
@@ -559,9 +546,7 @@ with st.sidebar.expander("Age Mapping Guide"):
 with st.sidebar.expander("Model Evaluation Metrics"):
     st.text(model_metrics.to_string(index=False))
 
-# ------------------------------------------------------------
-# QUESTIONNAIRE
-# ------------------------------------------------------------
+
 st.header("📝 Health Questionnaire")
 st.write(
     "Please complete all required fields. The system will calculate your BMI from your height and weight, "
@@ -672,9 +657,7 @@ with col2:
 
 submitted = st.button("Check Result")
 
-# ------------------------------------------------------------
-# PREDICTION
-# ------------------------------------------------------------
+
 if submitted:
     required_fields = {
         "Full Name": name.strip(),
