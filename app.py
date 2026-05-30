@@ -57,15 +57,15 @@ st.markdown("""
 .hero-card {
     display: flex;
     align-items: center;
-    gap: 30px;
-    padding: 30px 34px;
-    margin-bottom: 26px;
-    border-radius: 24px;
+    gap: 24px;
+    padding: 20px 28px;
+    margin-bottom: 18px;
+    border-radius: 18px;
     background:
-        radial-gradient(circle at 18% 25%, rgba(59, 130, 246, 0.12), transparent 35%),
+        radial-gradient(circle at 16% 40%, rgba(59, 130, 246, 0.16), transparent 34%),
         linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(8, 13, 24, 0.86));
     border: 1px solid rgba(96, 165, 250, 0.24);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(14px);
     position: relative;
     overflow: hidden;
@@ -75,35 +75,34 @@ st.markdown("""
     content: "";
     position: absolute;
     left: 0;
-    top: 22px;
-    bottom: 22px;
-    width: 5px;
+    top: 14px;
+    bottom: 14px;
+    width: 4px;
     border-radius: 999px;
     background: linear-gradient(180deg, #ef4444, #f59e0b, #22c55e);
 }
 
 .hero-visual {
-    min-width: 155px;
-    width: 155px;
-    height: 155px;
+    width: 125px;
+    min-width: 125px;
+    height: 125px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .hero-heart-wrap {
-    width: 132px;
-    height: 132px;
+    width: 112px;
+    height: 112px;
     border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
     background:
-        radial-gradient(circle at center, rgba(59,130,246,0.16), transparent 64%);
+        radial-gradient(circle at center, rgba(59,130,246,0.16), transparent 65%);
     box-shadow:
-        inset 0 0 0 1px rgba(59,130,246,0.20),
-        0 0 30px rgba(59,130,246,0.10);
+        inset 0 0 0 1px rgba(59,130,246,0.18),
+        0 0 28px rgba(59,130,246,0.08);
     position: relative;
 }
 
@@ -112,17 +111,17 @@ st.markdown("""
     content: "";
     position: absolute;
     border-radius: 999px;
-    border: 1px solid rgba(59,130,246,0.16);
+    border: 1px solid rgba(59,130,246,0.15);
 }
 
 .hero-heart-wrap::before {
-    width: 108px;
-    height: 108px;
+    width: 92px;
+    height: 92px;
 }
 
 .hero-heart-wrap::after {
-    width: 150px;
-    height: 150px;
+    width: 126px;
+    height: 126px;
 }
 
 .hero-content {
@@ -132,23 +131,23 @@ st.markdown("""
 
 .hero-badge {
     display: inline-block;
-    padding: 7px 14px;
-    margin-bottom: 14px;
+    padding: 5px 12px;
+    margin-bottom: 8px;
     border-radius: 999px;
     background: rgba(139, 92, 246, 0.22);
     color: #e9d5ff;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
     border: 1px solid rgba(168, 85, 247, 0.30);
 }
 
 .main-title {
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 950;
     color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.12;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.6px;
 }
 
 .title-accent {
@@ -159,10 +158,10 @@ st.markdown("""
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 68px;
-    height: 68px;
-    border-radius: 22px;
-    font-size: 40px;
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    font-size: 36px;
     background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(91,33,182,0.16));
     border: 1px solid rgba(239,68,68,0.28);
     box-shadow:
@@ -202,55 +201,52 @@ st.markdown("""
 }
 
 .subtitle {
-    font-size: 17px;
+    font-size: 14px;
     color: #d1d5db;
-    line-height: 1.65;
-    max-width: 930px;
+    line-height: 1.55;
+    max-width: 850px;
 }
 
 @media (max-width: 900px) {
     .hero-card {
         flex-direction: column;
         align-items: flex-start;
-        padding: 24px 20px;
-        border-radius: 20px;
+        padding: 22px 20px;
     }
 
     .hero-visual {
-        min-width: 0;
         width: 100%;
         height: auto;
         justify-content: flex-start;
     }
 
     .hero-heart-wrap {
-        width: 92px;
-        height: 92px;
+        width: 90px;
+        height: 90px;
     }
 
     .hero-heart-wrap::before {
-        width: 78px;
-        height: 78px;
+        width: 74px;
+        height: 74px;
     }
 
     .hero-heart-wrap::after {
-        width: 108px;
-        height: 108px;
+        width: 104px;
+        height: 104px;
     }
 
     .medical-heart {
-        width: 52px;
-        height: 52px;
-        font-size: 31px;
-        border-radius: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
     }
 
     .main-title {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .subtitle {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 div[data-testid="stTextInput"],
