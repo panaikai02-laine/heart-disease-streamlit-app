@@ -39,7 +39,6 @@ st.markdown("""
     }
 }
 
-}
 [data-testid="stAppViewContainer"] {
     background: transparent !important;
 }
@@ -56,13 +55,18 @@ st.markdown("""
     background: transparent !important;
 }
 .hero-card {
-    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 34px;
     margin-bottom: 26px;
     border-radius: 24px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    backdrop-filter: blur(12px);
+    background:
+        radial-gradient(circle at 18% 25%, rgba(59, 130, 246, 0.12), transparent 35%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(8, 13, 24, 0.86));
+    border: 1px solid rgba(96, 165, 250, 0.24);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(14px);
     position: relative;
     overflow: hidden;
 }
@@ -75,44 +79,95 @@ st.markdown("""
     bottom: 22px;
     width: 5px;
     border-radius: 999px;
-    background: linear-gradient(180deg, #ef4444, #facc15, #22c55e);
+    background: linear-gradient(180deg, #ef4444, #f59e0b, #22c55e);
+}
+
+.hero-visual {
+    min-width: 155px;
+    width: 155px;
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-heart-wrap {
+    width: 132px;
+    height: 132px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at center, rgba(59,130,246,0.16), transparent 64%);
+    box-shadow:
+        inset 0 0 0 1px rgba(59,130,246,0.20),
+        0 0 30px rgba(59,130,246,0.10);
+    position: relative;
+}
+
+.hero-heart-wrap::before,
+.hero-heart-wrap::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    border: 1px solid rgba(59,130,246,0.16);
+}
+
+.hero-heart-wrap::before {
+    width: 108px;
+    height: 108px;
+}
+
+.hero-heart-wrap::after {
+    width: 150px;
+    height: 150px;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 0;
 }
 
 .hero-badge {
     display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 12px;
+    padding: 7px 14px;
+    margin-bottom: 14px;
     border-radius: 999px;
-    background: rgba(239, 68, 68, 0.14);
-    color: #fecaca;
+    background: rgba(139, 92, 246, 0.22);
+    color: #e9d5ff;
     font-size: 13px;
-    font-weight: 800;
-    border: 1px solid rgba(239, 68, 68, 0.30);
+    font-weight: 900;
+    border: 1px solid rgba(168, 85, 247, 0.30);
 }
 
 .main-title {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-size: 44px;
+    font-size: 42px;
     font-weight: 950;
     color: #ffffff;
-    margin-bottom: 10px;
-    line-height: 1.15;
+    margin-bottom: 12px;
+    line-height: 1.12;
     letter-spacing: -0.8px;
+}
+
+.title-accent {
+    color: #60a5fa;
 }
 
 .medical-heart {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 58px;
-    height: 58px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.24), rgba(127, 29, 29, 0.22));
-    border: 1px solid rgba(248, 113, 113, 0.38);
-    box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
-    font-size: 36px;
+    width: 68px;
+    height: 68px;
+    border-radius: 22px;
+    font-size: 40px;
+    background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(91,33,182,0.16));
+    border: 1px solid rgba(239,68,68,0.28);
+    box-shadow:
+        0 10px 28px rgba(239,68,68,0.18),
+        0 0 22px rgba(96,165,250,0.08);
 }
 
 .heart-symbol {
@@ -126,12 +181,10 @@ st.markdown("""
 @keyframes elegantHeartPump {
     0%, 100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.30));
     }
 
     12% {
         transform: scale(1.06);
-        filter: drop-shadow(0 0 11px rgba(239, 68, 68, 0.38));
     }
 
     22% {
@@ -147,29 +200,53 @@ st.markdown("""
         transform: scale(1);
     }
 }
+
 .subtitle {
     font-size: 17px;
     color: #d1d5db;
-    line-height: 1.6;
-    max-width: 1000px;
+    line-height: 1.65;
+    max-width: 930px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .hero-card {
-        padding: 22px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px;
         border-radius: 20px;
+    }
+
+    .hero-visual {
+        min-width: 0;
+        width: 100%;
+        height: auto;
+        justify-content: flex-start;
+    }
+
+    .hero-heart-wrap {
+        width: 92px;
+        height: 92px;
+    }
+
+    .hero-heart-wrap::before {
+        width: 78px;
+        height: 78px;
+    }
+
+    .hero-heart-wrap::after {
+        width: 108px;
+        height: 108px;
+    }
+
+    .medical-heart {
+        width: 52px;
+        height: 52px;
+        font-size: 31px;
+        border-radius: 16px;
     }
 
     .main-title {
         font-size: 32px;
-        gap: 10px;
-    }
-
-    .medical-heart {
-        min-width: 48px;
-        height: 48px;
-        font-size: 30px;
-        border-radius: 15px;
     }
 
     .subtitle {
@@ -633,13 +710,22 @@ def show_footer():
 
 st.markdown("""
 <div class="hero-card">
-    <div class="hero-badge">AI-Powered Health Risk Screening</div>
-    <div class="main-title">
-        <span class="medical-heart"><span class="heart-symbol">🫀</span></span>
-        <span>Heart Disease Risk Prediction with Explainable AI</span>
+    <div class="hero-visual">
+        <div class="hero-heart-wrap">
+            <span class="medical-heart"><span class="heart-symbol">🫀</span></span>
+        </div>
     </div>
-    <div class="subtitle">
-        Predicts HeartDiseaseorAttack risk using the Top 10 selected features, trained model, explanation details, and lifestyle recommendations.
+
+    <div class="hero-content">
+        <div class="hero-badge">AI-Powered Health Risk Screening</div>
+        <div class="main-title">
+            Heart Disease Risk Prediction<br>
+            <span class="title-accent">with Explainable AI</span>
+        </div>
+        <div class="subtitle">
+            Predicts HeartDiseaseorAttack risk using the Top 10 selected features,
+            trained model, explanation details, and lifestyle recommendations.
+        </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
