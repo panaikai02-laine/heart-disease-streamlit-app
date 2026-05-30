@@ -988,11 +988,11 @@ with st.sidebar:
         feature_items = ""
 
         for feature in top10_features:
-            feature_items += f'<div style="padding:8px 10px; margin-bottom:7px; border-radius:10px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); color:#dbe4f0; font-size:13px; font-weight:600;">• {feature}</div>'
+            feature_items += f'<div style="padding:11px 12px; margin-bottom:10px; border-radius:11px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); color:#dbe4f0; font-size:13px; font-weight:700;">• {feature}</div>'
 
         st.markdown(
-            f'<div style="padding:16px; border-radius:16px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.10); margin-top:12px;">'
-            f'<div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:12px;">Top 10 Features Used</div>'
+            f'<div style="padding:18px; border-radius:16px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.10); margin-top:24px; padding-bottom:22px;">'
+            f'<div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:16px;">Top 10 Features Used</div>'
             f'{feature_items}'
             f'</div>',
             unsafe_allow_html=True
