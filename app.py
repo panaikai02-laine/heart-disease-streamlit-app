@@ -1056,45 +1056,41 @@ with st.sidebar:
         for col in ["Accuracy", "Recall", "F1-score", "ROC-AUC"]:
             metrics_display[col] = (metrics_display[col] * 100).round(2).astype(str) + "%"
 
-        st.markdown("""
-        <div style="
-            padding: 16px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.10);
-        ">
-            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
-                Model Evaluation
-            </div>
-            <div style="font-size:13px; color:#cbd5e1; margin-bottom:10px;">
-                Best Model: <b>Logistic Regression</b>
-            </div>
-        """, unsafe_allow_html=True)
+        model_cards = ""
 
         for _, row in metrics_display.iterrows():
-            st.markdown(
-                f"""
-                <div style="
-                    padding: 10px 12px;
-                    margin-bottom: 10px;
-                    border-radius: 12px;
-                    background: rgba(255,255,255,0.05);
-                    border: 1px solid rgba(255,255,255,0.10);
-                    font-size: 12.5px;
-                    color: #dbe4f0;
-                    line-height: 1.65;
-                ">
-                    <b style="color:#ffffff;">{row['Model']}</b><br>
-                    Accuracy: {row['Accuracy']}<br>
-                    Recall: {row['Recall']}<br>
-                    F1-score: {row['F1-score']}<br>
-                    ROC-AUC: {row['ROC-AUC']}
-                </div>
-                """,
-                unsafe_allow_html=True
+            is_best = row["Model"] == "Logistic Regression"
+
+            model_cards += (
+                f'<div style="padding:12px 12px; margin-bottom:10px; border-radius:12px; '
+                f'background:{"rgba(37,99,235,0.14)" if is_best else "rgba(255,255,255,0.045)"}; '
+                f'border:1px solid {"rgba(96,165,250,0.32)" if is_best else "rgba(255,255,255,0.08)"}; '
+                f'color:#dbe4f0; font-size:12.5px; line-height:1.65;">'
+                f'<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">'
+                f'<span style="font-size:13.5px; font-weight:900; color:#ffffff;">{row["Model"]}</span>'
+                f'{"<span style=\'padding:3px 7px; border-radius:999px; background:rgba(34,197,94,0.18); color:#86efac; font-size:10.5px; font-weight:800;\'>Best</span>" if is_best else ""}'
+                f'</div>'
+                f'<div style="display:flex; justify-content:space-between;"><span>Accuracy</span><b>{row["Accuracy"]}</b></div>'
+                f'<div style="display:flex; justify-content:space-between;"><span>Recall</span><b>{row["Recall"]}</b></div>'
+                f'<div style="display:flex; justify-content:space-between;"><span>F1-score</span><b>{row["F1-score"]}</b></div>'
+                f'<div style="display:flex; justify-content:space-between;"><span>ROC-AUC</span><b>{row["ROC-AUC"]}</b></div>'
+                f'</div>'
             )
 
-        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown(
+            f'<div style="padding:18px 18px 24px 18px; border-radius:16px; '
+            f'background:rgba(255,255,255,0.045); '
+            f'border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
+            f'<div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:8px;">'
+            f'Model Evaluation'
+            f'</div>'
+            f'<div style="font-size:12.5px; color:#cbd5e1; line-height:1.55; margin-bottom:14px;">'
+            f'Comparison of trained models based on evaluation metrics.'
+            f'</div>'
+            f'{model_cards}'
+            f'</div>',
+            unsafe_allow_html=True
+        )
 
     elif selected_menu == "System Info":
         st.markdown("""
