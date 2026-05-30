@@ -1093,24 +1093,46 @@ with st.sidebar:
         )
 
     elif selected_menu == "System Info":
-        st.markdown("""
-        <div style="
-            padding: 16px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.10);
-        ">
-            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
-                System Information
-            </div>
-            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
-                <b>Model:</b> Best selected model from training<br>
-                <b>Best Model:</b> Logistic Regression<br>
-                <b>Input Features:</b> Top 10 selected features<br>
-                <b>Explanation:</b> SHAP-based feature importance
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            '<div style="padding:18px 18px 26px 18px; border-radius:16px; '
+            'background:rgba(255,255,255,0.045); '
+            'border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
+            
+            '<div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:14px;">'
+            'System Information'
+            '</div>'
+
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; '
+            'background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.16); '
+            'color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Model Source</b><br>'
+            'Best selected model from training'
+            '</div>'
+
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; '
+            'background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.16); '
+            'color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Best Model</b><br>'
+            'Logistic Regression'
+            '</div>'
+
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; '
+            'background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.16); '
+            'color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Input Features</b><br>'
+            'Top 10 selected features'
+            '</div>'
+
+            '<div style="padding:10px 12px; margin-bottom:4px; border-radius:12px; '
+            'background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.16); '
+            'color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Explainability</b><br>'
+            'SHAP-based feature importance'
+            '</div>'
+
+            '</div>',
+            unsafe_allow_html=True
+        )
         
 st.markdown("""
 <style>
