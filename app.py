@@ -612,73 +612,64 @@ st.markdown("""
 st.markdown("""
 <style>
 .disclaimer-ticker {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 16px 0;
-    margin: 18px 0 26px 0;
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgba(63, 74, 31, 0.95), rgba(42, 56, 24, 0.95));
-    border: 1.5px solid rgba(255, 255, 255, 0.70);
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.08), 0 10px 28px rgba(0, 0, 0, 0.22);
+width: 100%;
+height: 52px;
+overflow: hidden;
+white-space: nowrap;
+display: flex;
+align-items: center;
+margin: 18px 0 26px 0;
+border-radius: 10px;
+background: linear-gradient(90deg, rgba(63, 74, 31, 0.95), rgba(42, 56, 24, 0.95));
+border: 1.5px solid rgba(255, 255, 255, 0.70);
+box-shadow: 0 0 18px rgba(255, 255, 255, 0.08), 0 10px 28px rgba(0, 0, 0, 0.22);
 }
 
 .disclaimer-track {
-    display: flex;
-    width: max-content;
-    animation: tickerMove 32s linear infinite;
-}
-
-.disclaimer-group {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding-right: 80px;
-    flex-shrink: 0;
+display: inline-flex;
+width: max-content;
+animation: tickerMove 28s linear infinite;
 }
 
 .disclaimer-text {
-    color: #fff7cc;
-    font-weight: 800;
-    font-size: 15px;
+display: inline-block;
+padding-right: 80px;
+color: #fff7cc;
+font-weight: 800;
+font-size: 15px;
 }
 
 @keyframes tickerMove {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+0% {
+transform: translateX(0);
+}
+100% {
+transform: translateX(-50%);
+}
 }
 
 @media (max-width: 768px) {
-    .disclaimer-text {
-        font-size: 13px;
-    }
+.disclaimer-ticker {
+height: 48px;
+}
 
-    .disclaimer-track {
-        animation-duration: 38s;
-    }
+.disclaimer-text {
+font-size: 13px;
+padding-right: 60px;
+}
+
+.disclaimer-track {
+animation-duration: 34s;
+}
 }
 </style>
-
 <div class="disclaimer-ticker">
-    <div class="disclaimer-track">
-
-        <div class="disclaimer-group">
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-        </div>
-
-        <div class="disclaimer-group">
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-            <div class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</div>
-        </div>
-
-    </div>
+<div class="disclaimer-track">
+<span class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</span>
+<span class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</span>
+<span class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</span>
+<span class="disclaimer-text">Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.</span>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
