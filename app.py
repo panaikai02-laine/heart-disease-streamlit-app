@@ -985,25 +985,43 @@ with st.sidebar:
         """, unsafe_allow_html=True)
 
     elif selected_menu == "Top 10 Features":
-        st.markdown("""
+    feature_items = "".join([
+        f"""
         <div style="
-            padding: 16px;
-            border-radius: 16px;
+            padding: 8px 10px;
+            margin-bottom: 7px;
+            border-radius: 10px;
             background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #dbe4f0;
+            font-size: 13px;
+            font-weight: 600;
         ">
-            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
-                Top 10 Features Used
-            </div>
-        """, unsafe_allow_html=True)
+            • {feature}
+        </div>
+        """
+        for feature in top10_features
+    ])
 
-        for feature in top10_features:
-            st.markdown(
-                f"<div style='font-size:13px; color:#cbd5e1; margin-bottom:6px;'>• {feature}</div>",
-                unsafe_allow_html=True
-            )
-
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(f"""
+    <div style="
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.10);
+        margin-top: 12px;
+    ">
+        <div style="
+            font-size:15px;
+            font-weight:900;
+            color:#ffffff;
+            margin-bottom:12px;
+        ">
+            Top 10 Features Used
+        </div>
+        {feature_items}
+    </div>
+    """, unsafe_allow_html=True)
 
     elif selected_menu == "Age Mapping Guide":
         st.markdown("""
