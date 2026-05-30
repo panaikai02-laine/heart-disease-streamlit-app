@@ -54,16 +54,94 @@ st.markdown("""
 .block-container {
     background: transparent !important;
 }
-.main-title {
-    font-size: 42px;
-    font-weight: 900;
-    color: #ffffff;
-    margin-bottom: 5px;
+.hero-card {
+    padding: 28px 32px;
+    margin-bottom: 26px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
 }
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    bottom: 22px;
+    width: 5px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ef4444, #facc15, #22c55e);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    border-radius: 999px;
+    background: rgba(239, 68, 68, 0.14);
+    color: #fecaca;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid rgba(239, 68, 68, 0.30);
+}
+
+.main-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 44px;
+    font-weight: 950;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+}
+
+.medical-heart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.20));
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
+    font-size: 36px;
+}
+
 .subtitle {
     font-size: 17px;
-    color: #d0d0d0;
-    margin-bottom: 20px;
+    color: #d1d5db;
+    line-height: 1.6;
+    max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+    .hero-card {
+        padding: 22px 20px;
+        border-radius: 20px;
+    }
+
+    .main-title {
+        font-size: 32px;
+        gap: 10px;
+    }
+
+    .medical-heart {
+        min-width: 48px;
+        height: 48px;
+        font-size: 30px;
+        border-radius: 15px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
 }
 div[data-testid="stTextInput"],
 div[data-testid="stNumberInput"],
@@ -518,11 +596,18 @@ def show_footer():
     )
 
 
-st.markdown('<div class="main-title">❤️ Heart Disease Risk Prediction with Explainable AI</div>', unsafe_allow_html=True)
-st.markdown(
-    '<div class="subtitle">Predicts HeartDiseaseorAttack risk using the Top 10 selected features, trained model, explanation details, and lifestyle recommendations.</div>',
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div class="hero-card">
+    <div class="hero-badge">AI-Powered Health Risk Screening</div>
+    <div class="main-title">
+        <span class="medical-heart">🫀</span>
+        <span>Heart Disease Risk Prediction with Explainable AI</span>
+    </div>
+    <div class="subtitle">
+        Predicts HeartDiseaseorAttack risk using the Top 10 selected features, trained model, explanation details, and lifestyle recommendations.
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.warning(
     "Disclaimer: This system is for educational and capstone purposes only. "
