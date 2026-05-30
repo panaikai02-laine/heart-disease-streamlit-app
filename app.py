@@ -112,22 +112,24 @@ st.markdown("""
     border: 1px solid rgba(248, 113, 113, 0.38);
     box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
     font-size: 36px;
+}
+
+.heart-symbol {
+    display: inline-block;
     transform-origin: center;
     animation: elegantHeartPump 1.65s ease-in-out infinite;
     filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.30));
-    will-change: transform, box-shadow, filter;
+    will-change: transform, filter;
 }
 
 @keyframes elegantHeartPump {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 14px 35px rgba(239, 68, 68, 0.20);
         filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.30));
     }
 
     12% {
         transform: scale(1.06);
-        box-shadow: 0 16px 40px rgba(239, 68, 68, 0.28);
         filter: drop-shadow(0 0 11px rgba(239, 68, 68, 0.38));
     }
 
@@ -136,17 +138,14 @@ st.markdown("""
     }
 
     34% {
-        transform: scale(1.10);
-        box-shadow: 0 18px 46px rgba(239, 68, 68, 0.34);
+        transform: scale(1.12);
         filter: drop-shadow(0 0 14px rgba(239, 68, 68, 0.45));
     }
 
     48% {
         transform: scale(1);
-        box-shadow: 0 14px 35px rgba(239, 68, 68, 0.22);
     }
 }
-
 .subtitle {
     font-size: 17px;
     color: #d1d5db;
@@ -633,7 +632,7 @@ st.markdown("""
 <div class="hero-card">
     <div class="hero-badge">AI-Powered Health Risk Screening</div>
     <div class="main-title">
-        <span class="medical-heart">🫀</span>
+        <span class="medical-heart"><span class="heart-symbol">🫀</span></span>
         <span>Heart Disease Risk Prediction with Explainable AI</span>
     </div>
     <div class="subtitle">
