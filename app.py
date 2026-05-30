@@ -544,7 +544,36 @@ with st.sidebar.expander("Age Mapping Guide"):
     st.write("13 = 80 or older")
 
 with st.sidebar.expander("Model Evaluation Metrics"):
-    st.text(model_metrics.to_string(index=False))
+    metrics_display = model_metrics[[
+        "Model", "Accuracy", "Recall", "F1-score", "ROC-AUC"
+    ]].copy()
+
+    for col in ["Accuracy", "Recall", "F1-score", "ROC-AUC"]:
+        metrics_display[col] = (metrics_display[col] * 100).round(2).astype(str) + "%"
+
+    st.markdown("**Best Model:** Logistic Regression")
+    st.markdown("**Model Comparison:**")
+
+    for _, row in metrics_display.iterrows():
+        st.markdown(
+            f"""
+            <div style="
+                padding: 10px 12px;
+                margin-bottom: 10px;
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
+                line-height: 1.7;
+            ">
+                <b>{row['Model']}</b><br>
+                Accuracy: {row['Accuracy']}<br>
+                Recall: {row['Recall']}<br>
+                F1-score: {row['F1-score']}<br>
+                ROC-AUC: {row['ROC-AUC']}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 
 st.header("📝 Health Questionnaire")
