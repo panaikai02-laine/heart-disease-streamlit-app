@@ -984,7 +984,7 @@ with st.sidebar:
             '<b>Explainability</b><br>'
             'SHAP-based feature importance'
             '</div>'
-            '<div style="padding:10px 12px; border-radius:12px; background:rgba(250,204,21,0.08); border:1px solid rgba(250,204,21,0.16); color:#dbe4f0; font-size:12.5px; line-height:1.6;">'
+            '<div style="padding:10px 12px; margin-bottom:4px; border-radius:12px; background:rgba(250,204,21,0.08); border:1px solid rgba(250,204,21,0.16); color:#dbe4f0; font-size:12.5px; line-height:1.6;">'
             '<b>Reminder</b><br>'
             'This system is for educational and capstone purposes only.'
             '</div>'
