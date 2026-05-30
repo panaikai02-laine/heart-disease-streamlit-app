@@ -779,34 +779,9 @@ st.markdown("""
     </div>
 </div>
 
-<div style="
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 14px 0 24px 0;
-    padding: 14px 18px;
-    border-radius: 14px;
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(147, 197, 253, 0.22);
-    color: #cbd5e1;
-    font-size: 14px;
-    line-height: 1.6;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
-">
-    <span style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 34px;
-        height: 34px;
-        border-radius: 10px;
-        background: rgba(59, 130, 246, 0.15);
-        font-size: 17px;
-    ">🔎</span>
-
-    <span>
-        <b>Screening Note:</b> The risk score is a machine learning probability estimate, not a medical diagnosis. The risk level is interpreted using app-defined thresholds.
-    </span>
+<div style="display:flex; align-items:center; gap:12px; margin:14px 0 24px 0; padding:14px 18px; border-radius:14px; background:rgba(59,130,246,0.08); border:1px solid rgba(147,197,253,0.22); color:#cbd5e1; font-size:14px; line-height:1.6; box-shadow:0 10px 28px rgba(0,0,0,0.16);">
+<div style="display:flex; align-items:center; justify-content:center; min-width:34px; height:34px; border-radius:10px; background:rgba(59,130,246,0.15); font-size:17px;">🔎</div>
+<div><b>Screening Note:</b> The risk score is a machine learning probability estimate, not a medical diagnosis. The risk level is interpreted using app-defined thresholds.</div>
 </div>
 
 <div class="notice-card info-card">
