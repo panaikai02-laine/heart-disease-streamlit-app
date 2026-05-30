@@ -15,6 +15,46 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+
+.stApp {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.24), transparent 30%),
+        radial-gradient(circle at 85% 18%, rgba(34, 197, 94, 0.18), transparent 28%),
+        radial-gradient(circle at 45% 88%, rgba(245, 158, 11, 0.14), transparent 30%),
+        radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.13), transparent 28%),
+        linear-gradient(135deg, #060a12 0%, #0b111c 45%, #05070c 100%) !important;
+    background-size: 180% 180%;
+    animation: softGlowMove 18s ease-in-out infinite;
+    color: #ffffff !important;
+}
+
+@keyframes softGlowMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 80%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+[data-testid="stAppViewContainer"] {
+    background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #232431 0%, #1b1c27 100%) !important;
+}
+
+.block-container {
+    background: transparent !important;
+}
 .main-title {
     font-size: 42px;
     font-weight: 900;
