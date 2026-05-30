@@ -575,124 +575,129 @@ with st.sidebar.expander("Model Evaluation Metrics"):
             unsafe_allow_html=True
         )
 
-st.markdown(
-    """
-    <style>
+st.markdown("""
+<style>
+@media (min-width: 1201px) {
+    .block-container {
+        padding-right: 360px !important;
+    }
+}
+
+.right-tips-panel {
+    position: fixed;
+    right: 22px;
+    top: 125px;
+    width: 300px;
+    z-index: 999;
+    background: linear-gradient(145deg, rgba(16, 24, 39, 0.96), rgba(10, 15, 25, 0.96));
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.right-tips-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.right-tips-subtitle {
+    font-size: 12px;
+    color: #b8c4d8;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.health-tip-card {
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 10px;
+    transition: all 0.25s ease;
+}
+
+.health-tip-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34, 197, 94, 0.55);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.15);
+}
+
+.health-tip-card h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    font-weight: 800;
+}
+
+.health-tip-card p {
+    color: #cbd5e1;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.tip-badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.18);
+    color: #86efac;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .block-container {
+        padding-right: 1rem !important;
+    }
+
     .right-tips-panel {
-        position: fixed;
-        right: 22px;
-        top: 125px;
-        width: 285px;
-        z-index: 999;
-        background: linear-gradient(145deg, rgba(16, 24, 39, 0.96), rgba(10, 15, 25, 0.96));
-        border: 1px solid rgba(59, 130, 246, 0.35);
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        position: static;
+        width: auto;
+        max-width: 100%;
+        margin: 18px 0 26px 0;
+        right: auto;
+        top: auto;
+        z-index: auto;
+        padding: 16px;
+        border-radius: 16px;
     }
+}
+</style>
 
-    .right-tips-title {
-        font-size: 20px;
-        font-weight: 900;
-        color: #ffffff;
-        margin-bottom: 6px;
-    }
+<div class="right-tips-panel">
+<div class="right-tips-title">📰 Health Tips</div>
+<div class="right-tips-subtitle">General wellness reminders for heart health awareness.</div>
 
-    .right-tips-subtitle {
-        font-size: 12px;
-        color: #b8c4d8;
-        margin-bottom: 14px;
-        line-height: 1.5;
-    }
+<div class="health-tip-card">
+<h4>🩺 Monitor Your Health</h4>
+<p>Regular check-ups can help detect possible health risks early.</p>
+<span class="tip-badge">Check-up</span>
+</div>
 
-    .health-tip-card {
-        background: rgba(255, 255, 255, 0.055);
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        border-radius: 14px;
-        padding: 12px;
-        margin-bottom: 10px;
-        transition: all 0.25s ease;
-    }
+<div class="health-tip-card">
+<h4>🚶 Stay Physically Active</h4>
+<p>Light exercise such as walking may support better cardiovascular health.</p>
+<span class="tip-badge">Activity</span>
+</div>
 
-    .health-tip-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(34, 197, 94, 0.55);
-        box-shadow: 0 10px 25px rgba(34, 197, 94, 0.15);
-    }
+<div class="health-tip-card">
+<h4>🥗 Choose Balanced Meals</h4>
+<p>Limit fatty, salty, and highly processed foods when possible.</p>
+<span class="tip-badge">Lifestyle</span>
+</div>
 
-    .health-tip-card h4 {
-        color: #ffffff;
-        font-size: 14px;
-        margin: 0 0 5px 0;
-        font-weight: 800;
-    }
-
-    .health-tip-card p {
-        color: #cbd5e1;
-        font-size: 12px;
-        margin: 0;
-        line-height: 1.45;
-    }
-
-    .tip-badge {
-        display: inline-block;
-        margin-top: 8px;
-        padding: 4px 9px;
-        border-radius: 999px;
-        background: rgba(34, 197, 94, 0.18);
-        color: #86efac;
-        font-size: 11px;
-        font-weight: 700;
-    }
-
-    @media (max-width: 1200px) {
-        .right-tips-panel {
-            position: static;
-            width: auto;
-            max-width: 100%;
-            margin: 18px 0 26px 0;
-            right: auto;
-            top: auto;
-            z-index: auto;
-            padding: 16px;
-            border-radius: 16px;
-        }
-    }
-    </style>
-
-    <div class="right-tips-panel">
-        <div class="right-tips-title">📰 Health Tips</div>
-        <div class="right-tips-subtitle">
-            General wellness reminders for heart health awareness.
-        </div>
-
-        <div class="health-tip-card">
-            <h4>🩺 Monitor Your Health</h4>
-            <p>Regular check-ups can help detect possible health risks early.</p>
-            <span class="tip-badge">Check-up</span>
-        </div>
-
-        <div class="health-tip-card">
-            <h4>🚶 Stay Physically Active</h4>
-            <p>Light exercise such as walking may support better cardiovascular health.</p>
-            <span class="tip-badge">Activity</span>
-        </div>
-
-        <div class="health-tip-card">
-            <h4>🥗 Choose Balanced Meals</h4>
-            <p>Limit fatty, salty, and highly processed foods when possible.</p>
-            <span class="tip-badge">Lifestyle</span>
-        </div>
-
-        <div class="health-tip-card">
-            <h4>👨‍⚕️ Consult a Doctor</h4>
-            <p>This system is only a screening support tool and not a medical diagnosis.</p>
-            <span class="tip-badge">Reminder</span>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+<div class="health-tip-card">
+<h4>👨‍⚕️ Consult a Doctor</h4>
+<p>This system is only a screening support tool and not a medical diagnosis.</p>
+<span class="tip-badge">Reminder</span>
+</div>
+</div>
+""", unsafe_allow_html=True)
 
 st.header("📝 Health Questionnaire")
 st.write(
