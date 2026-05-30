@@ -49,8 +49,17 @@ st.markdown("""
 
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg, #232431 0%, #1b1c27 100%) !important;
+    width: 320px !important;
+    min-width: 320px !important;
 }
 
+[data-testid="stSidebarContent"] {
+    padding: 22px 18px !important;
+}
+
+section[data-testid="stSidebar"] > div {
+    width: 320px !important;
+}
 .block-container {
     background: transparent !important;
 }
