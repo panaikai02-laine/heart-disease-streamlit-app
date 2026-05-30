@@ -529,32 +529,92 @@ st.warning(
     "It should not replace medical advice from healthcare professionals."
 )
 
-st.markdown(
-    '<div class="medical-alert-card">'
-    '<div class="medical-alert-title">⚠️ Important Medical Reminder</div>'
-    '<div class="medical-alert-text">'
-    'This system provides an <b>AI-based risk estimate only</b>. '
-    'It is <b>not a medical diagnosis</b> and should not be used as a replacement for professional healthcare advice. '
-    '<br><br>For accurate evaluation, proper diagnosis, and treatment, it is still best to '
-    '<b>consult a licensed doctor or healthcare professional</b>.'
-    '</div></div>',
-    unsafe_allow_html=True
-)
+st.markdown("""
+<style>
+.notice-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px 26px;
+    border-radius: 20px;
+    margin: 22px 0;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+}
 
-st.caption(
-    "Note: The risk score is a machine learning probability estimate, not a medical diagnosis. "
-    "The risk level is interpreted using app-defined thresholds."
-)
+.notice-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    background: rgba(255, 255, 255, 0.08);
+}
 
-st.markdown(
-    '<div class="medical-alert-card">'
-    '<div class="medical-alert-title">ℹ️ Risk Factor Interpretation</div>'
-    '<div class="medical-alert-text">'
-    'Having one or more risk factors does <b>not automatically mean</b> that a person has heart disease or had a heart attack. '
-    'The system estimates risk based on patterns learned from the dataset, where some respondents had risk factors but did not report coronary heart disease or myocardial infarction.'
-    '</div></div>',
-    unsafe_allow_html=True
-)
+.notice-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.notice-content p {
+    margin: 0 0 12px 0;
+    color: #e5e7eb;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.warning-card {
+    border-left: 5px solid #facc15;
+}
+
+.info-card {
+    border-left: 5px solid #38bdf8;
+}
+
+@media (max-width: 768px) {
+    .notice-card {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .notice-content h3 {
+        font-size: 20px;
+    }
+
+    .notice-content p {
+        font-size: 14px;
+    }
+}
+</style>
+
+<div class="notice-card warning-card">
+    <div class="notice-icon">⚠️</div>
+    <div class="notice-content">
+        <h3>Important Medical Reminder</h3>
+        <p>This system provides an <b>AI-based risk estimate only</b>. It is not a medical diagnosis and should not be used as a replacement for professional healthcare advice.</p>
+        <p>For accurate evaluation, proper diagnosis, and treatment, it is still best to <b>consult a licensed doctor or healthcare professional</b>.</p>
+    </div>
+</div>
+
+<p style="color:#aeb7c6; font-size:14px; margin-top:4px;">
+    Note: The risk score is a machine learning probability estimate, not a medical diagnosis. The risk level is interpreted using app-defined thresholds.
+</p>
+
+<div class="notice-card info-card">
+    <div class="notice-icon">ℹ️</div>
+    <div class="notice-content">
+        <h3>Risk Factor Interpretation</h3>
+        <p>Having one or more risk factors does <b>not automatically mean</b> that a person has heart disease or had a heart attack. The system estimates risk based on patterns learned from the dataset, where some respondents had risk factors but did not report coronary heart disease or myocardial infarction.</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 st.sidebar.header("System Information")
