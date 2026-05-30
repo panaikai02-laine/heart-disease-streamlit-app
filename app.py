@@ -609,10 +609,63 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.warning(
-    "Disclaimer: This system is for educational and capstone purposes only. "
-    "It should not replace medical advice from healthcare professionals."
-)
+st.markdown("""
+<style>
+.disclaimer-ticker {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 16px 0;
+    margin: 18px 0 26px 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(63, 74, 31, 0.95), rgba(42, 56, 24, 0.95));
+    border: 1.5px solid rgba(255, 255, 255, 0.70);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.08), 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.disclaimer-track {
+    display: inline-flex;
+    gap: 70px;
+    animation: tickerMove 26s linear infinite;
+}
+
+.disclaimer-text {
+    color: #fff7cc;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+@keyframes tickerMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .disclaimer-text {
+        font-size: 13px;
+    }
+
+    .disclaimer-track {
+        animation-duration: 30s;
+    }
+}
+</style>
+
+<div class="disclaimer-ticker">
+    <div class="disclaimer-track">
+        <div class="disclaimer-text">
+            Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.
+        </div>
+        <div class="disclaimer-text">
+            Disclaimer: This system is for educational and capstone purposes only. It should not replace medical advice from healthcare professionals.
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
