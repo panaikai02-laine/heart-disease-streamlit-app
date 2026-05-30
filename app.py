@@ -364,6 +364,62 @@ div.stButton > button:hover {
     font-size: 14px;
     margin-top: 18px;
 }
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 70px;
+    right: 35px;
+    width: 330px;
+    height: 330px;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 0 18px rgba(125, 211, 252, 0.22));
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='none'><path d='M95 48v54c0 34 24 58 55 58s55-24 55-58V48' stroke='%237dd3fc' stroke-width='4' stroke-linecap='round' stroke-dasharray='4 9'/><circle cx='95' cy='40' r='14' stroke='%23ffffff' stroke-width='4' fill='none'/><circle cx='205' cy='40' r='14' stroke='%23ffffff' stroke-width='4' fill='none'/><path d='M150 160v28c0 34 20 59 54 59 30 0 50-19 50-46 0-22-15-36-34-36-16 0-29 12-29 27 0 14 10 24 24 24 10 0 18-7 18-17' stroke='%2386efac' stroke-width='4' stroke-linecap='round' stroke-dasharray='3 8'/><circle cx='223' cy='211' r='16' stroke='%23fde68a' stroke-width='4' fill='none'/></svg>");
+}
+
+.stApp::after {
+    content: "";
+    position: fixed;
+    left: 30px;
+    bottom: 35px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.09;
+    pointer-events: none;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 0 18px rgba(147, 197, 253, 0.20));
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='none'><rect x='72' y='58' width='156' height='192' rx='18' stroke='%2393c5fd' stroke-width='4' stroke-dasharray='4 9'/><rect x='112' y='35' width='76' height='30' rx='10' stroke='%23ffffff' stroke-width='4' stroke-dasharray='4 9'/><path d='M96 118h24l18-22 24 50 20-30h24' stroke='%2386efac' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='3 8'/><line x1='96' y1='176' x2='205' y2='176' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/><line x1='96' y1='201' x2='190' y2='201' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/><line x1='96' y1='226' x2='170' y2='226' stroke='%237dd3fc' stroke-width='3.5' stroke-dasharray='3 8'/></svg>");
+}
+
+[data-testid="stAppViewContainer"] > .main {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .stApp::before {
+        width: 180px;
+        height: 180px;
+        top: 80px;
+        right: 8px;
+        opacity: 0.07;
+    }
+
+    .stApp::after {
+        width: 170px;
+        height: 170px;
+        left: 8px;
+        bottom: 10px;
+        opacity: 0.06;
+    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
