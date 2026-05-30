@@ -875,7 +875,224 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+with st.sidebar:
+    st.markdown("""
+    <div style="
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 4px 18px 4px;
+        margin-bottom: 8px;
+    ">
+        <div style="
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.14);
+            border: 1px solid rgba(96, 165, 250, 0.28);
+            color: #60a5fa;
+            font-size: 22px;
+            box-shadow: 0 0 18px rgba(59, 130, 246, 0.12);
+        ">♡</div>
+        <div>
+            <div style="font-size:18px; font-weight:900; color:#ffffff; line-height:1.15;">
+                Heart Disease
+            </div>
+            <div style="font-size:12px; color:#9ca3af; margin-top:2px;">
+                XAI System
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
+    selected_menu = option_menu(
+        menu_title=None,
+        options=[
+            "Dashboard",
+            "Top 10 Features",
+            "Age Mapping Guide",
+            "Model Evaluation",
+            "System Info"
+        ],
+        icons=[
+            "house-fill",
+            "bar-chart-line-fill",
+            "people-fill",
+            "graph-up-arrow",
+            "info-circle-fill"
+        ],
+        default_index=0,
+        styles={
+            "container": {
+                "padding": "0!important",
+                "background-color": "transparent"
+            },
+            "icon": {
+                "color": "#93a4c7",
+                "font-size": "17px"
+            },
+            "nav-link": {
+                "font-size": "14px",
+                "text-align": "left",
+                "margin": "6px 0",
+                "padding": "11px 13px",
+                "border-radius": "13px",
+                "color": "#d1d5db",
+                "background-color": "transparent",
+                "--hover-color": "rgba(37, 99, 235, 0.12)"
+            },
+            "nav-link-selected": {
+                "background": "linear-gradient(90deg, rgba(37,99,235,0.34), rgba(37,99,235,0.16))",
+                "color": "#ffffff",
+                "font-weight": "800",
+                "box-shadow": "0 0 0 1px rgba(96,165,250,0.20) inset"
+            },
+        }
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if selected_menu == "Dashboard":
+        st.markdown("""
+        <div style="
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+        ">
+            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
+                System Status
+            </div>
+            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+                <span style="color:#22c55e;">●</span> Online<br>
+                Model: Logistic Regression<br>
+                Features: Top 10 selected<br>
+                Explanation: SHAP-based
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    elif selected_menu == "Top 10 Features":
+        st.markdown("""
+        <div style="
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+        ">
+            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
+                Top 10 Features Used
+            </div>
+        """, unsafe_allow_html=True)
+
+        for feature in top10_features:
+            st.markdown(
+                f"<div style='font-size:13px; color:#cbd5e1; margin-bottom:6px;'>• {feature}</div>",
+                unsafe_allow_html=True
+            )
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    elif selected_menu == "Age Mapping Guide":
+        st.markdown("""
+        <div style="
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+        ">
+            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
+                Age Mapping Guide
+            </div>
+            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+                1 = 18–24<br>
+                2 = 25–29<br>
+                3 = 30–34<br>
+                4 = 35–39<br>
+                5 = 40–44<br>
+                6 = 45–49<br>
+                7 = 50–54<br>
+                8 = 55–59<br>
+                9 = 60–64<br>
+                10 = 65–69<br>
+                11 = 70–74<br>
+                12 = 75–79<br>
+                13 = 80 or older
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    elif selected_menu == "Model Evaluation":
+        metrics_display = model_metrics[[
+            "Model", "Accuracy", "Recall", "F1-score", "ROC-AUC"
+        ]].copy()
+
+        for col in ["Accuracy", "Recall", "F1-score", "ROC-AUC"]:
+            metrics_display[col] = (metrics_display[col] * 100).round(2).astype(str) + "%"
+
+        st.markdown("""
+        <div style="
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+        ">
+            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
+                Model Evaluation
+            </div>
+            <div style="font-size:13px; color:#cbd5e1; margin-bottom:10px;">
+                Best Model: <b>Logistic Regression</b>
+            </div>
+        """, unsafe_allow_html=True)
+
+        for _, row in metrics_display.iterrows():
+            st.markdown(
+                f"""
+                <div style="
+                    padding: 10px 12px;
+                    margin-bottom: 10px;
+                    border-radius: 12px;
+                    background: rgba(255,255,255,0.05);
+                    border: 1px solid rgba(255,255,255,0.10);
+                    font-size: 12.5px;
+                    color: #dbe4f0;
+                    line-height: 1.65;
+                ">
+                    <b style="color:#ffffff;">{row['Model']}</b><br>
+                    Accuracy: {row['Accuracy']}<br>
+                    Recall: {row['Recall']}<br>
+                    F1-score: {row['F1-score']}<br>
+                    ROC-AUC: {row['ROC-AUC']}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    elif selected_menu == "System Info":
+        st.markdown("""
+        <div style="
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+        ">
+            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
+                System Information
+            </div>
+            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+                <b>Model:</b> Best selected model from training<br>
+                <b>Best Model:</b> Logistic Regression<br>
+                <b>Input Features:</b> Top 10 selected features<br>
+                <b>Explanation:</b> SHAP-based feature importance
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
 st.markdown("""
 <style>
 @media (min-width: 1201px) {
