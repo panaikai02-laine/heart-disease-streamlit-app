@@ -985,43 +985,43 @@ with st.sidebar:
         """, unsafe_allow_html=True)
 
     elif selected_menu == "Top 10 Features":
-    feature_items = "".join([
-        f"""
-        <div style="
-            padding: 8px 10px;
-            margin-bottom: 7px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: #dbe4f0;
-            font-size: 13px;
-            font-weight: 600;
-        ">
-            • {feature}
-        </div>
-        """
-        for feature in top10_features
-    ])
+        feature_items = "".join([
+            f"""
+            <div style="
+                padding: 8px 10px;
+                margin-bottom: 7px;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.045);
+                border: 1px solid rgba(255,255,255,0.08);
+                color: #dbe4f0;
+                font-size: 13px;
+                font-weight: 600;
+            ">
+                • {feature}
+            </div>
+            """
+            for feature in top10_features
+        ])
 
-    st.markdown(f"""
-    <div style="
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.045);
-        border: 1px solid rgba(255,255,255,0.10);
-        margin-top: 12px;
-    ">
+        st.markdown(f"""
         <div style="
-            font-size:15px;
-            font-weight:900;
-            color:#ffffff;
-            margin-bottom:12px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.10);
+            margin-top: 12px;
         ">
-            Top 10 Features Used
+            <div style="
+                font-size:15px;
+                font-weight:900;
+                color:#ffffff;
+                margin-bottom:12px;
+            ">
+                Top 10 Features Used
+            </div>
+            {feature_items}
         </div>
-        {feature_items}
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
     elif selected_menu == "Age Mapping Guide":
         st.markdown("""
