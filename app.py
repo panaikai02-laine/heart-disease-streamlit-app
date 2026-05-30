@@ -966,7 +966,7 @@ with st.sidebar:
 
     if selected_menu == "Dashboard":
         st.markdown(
-            '<div style="padding:18px; border-radius:17px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
+            '<div style="padding:18px 18px 24px 18px; border-radius:17px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
             '<div style="font-size:16px; font-weight:900; color:#ffffff; margin-bottom:14px;">System Status</div>'
             '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.16); color:#dbe4f0; font-size:13px; line-height:1.6;">'
             '<span style="color:#22c55e;">●</span> Online<br>'
