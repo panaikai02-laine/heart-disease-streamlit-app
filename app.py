@@ -965,24 +965,32 @@ with st.sidebar:
     st.markdown("<br>", unsafe_allow_html=True)
 
     if selected_menu == "Dashboard":
-        st.markdown("""
-        <div style="
-            padding: 16px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.10);
-        ">
-            <div style="font-size:15px; font-weight:900; color:#ffffff; margin-bottom:10px;">
-                System Status
-            </div>
-            <div style="font-size:13px; color:#cbd5e1; line-height:1.7;">
-                <span style="color:#22c55e;">●</span> Online<br>
-                Model: Logistic Regression<br>
-                Features: Top 10 selected<br>
-                Explanation: SHAP-based
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            '<div style="padding:18px; border-radius:17px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.10); margin-top:24px;">'
+            '<div style="font-size:16px; font-weight:900; color:#ffffff; margin-bottom:14px;">System Status</div>'
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.16); color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<span style="color:#22c55e;">●</span> Online<br>'
+            'Application is active'
+            '</div>'
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.16); color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Best Model</b><br>'
+            'Logistic Regression'
+            '</div>'
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.16); color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Input Features</b><br>'
+            'Top 10 selected features'
+            '</div>'
+            '<div style="padding:10px 12px; margin-bottom:10px; border-radius:12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.16); color:#dbe4f0; font-size:13px; line-height:1.6;">'
+            '<b>Explainability</b><br>'
+            'SHAP-based feature importance'
+            '</div>'
+            '<div style="padding:10px 12px; border-radius:12px; background:rgba(250,204,21,0.08); border:1px solid rgba(250,204,21,0.16); color:#dbe4f0; font-size:12.5px; line-height:1.6;">'
+            '<b>Reminder</b><br>'
+            'This system is for educational and capstone purposes only.'
+            '</div>'
+            '</div>',
+            unsafe_allow_html=True
+        )
 
     elif selected_menu == "Top 10 Features":
         feature_items = ""
