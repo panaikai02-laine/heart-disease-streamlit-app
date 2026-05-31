@@ -38,7 +38,78 @@ st.markdown("""
         background-position: 0% 0%;
     }
 }
+/* ===== Safe medical doodle background, no overlap ===== */
 
+.stApp {
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* Make main content and panels stay above the background doodles */
+.block-container,
+[data-testid="stSidebar"],
+.right-tips-panel,
+.hero-card,
+.notice-card,
+.disclaimer-ticker {
+    position: relative;
+    z-index: 2;
+}
+
+/* Upper-right medical doodles behind content */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 35px;
+    right: 325px;
+    width: 260px;
+    height: 240px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.10;
+    background-repeat: repeat;
+    background-size: 62px 62px;
+    filter: drop-shadow(0 0 7px rgba(96, 165, 250, 0.10));
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='62' height='62' viewBox='0 0 62 62' fill='none'><g stroke='%237dd3fc' stroke-opacity='0.28' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'><path d='M14 10v10c0 7 5 12 12 12s12-5 12-12V10' stroke-dasharray='2 4'/><circle cx='14' cy='8' r='2.3'/><circle cx='38' cy='8' r='2.3'/><path d='M26 32v7'/><circle cx='26' cy='43' r='4' stroke-dasharray='2 4'/><path d='M46 14l7 7'/><rect x='43' y='22' width='12' height='6' rx='3' stroke-dasharray='2 4'/><path d='M12 48h10'/><path d='M17 43v10'/></g></svg>");
+}
+
+/* Sidebar subtle medical doodles */
+[data-testid="stSidebar"]::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    bottom: 120px;
+    width: 230px;
+    height: 360px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.11;
+    background-repeat: repeat;
+    background-size: 68px 68px;
+    filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.08));
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='68' height='68' viewBox='0 0 68 68' fill='none'><g stroke='%2322d3ee' stroke-opacity='0.22' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'><rect x='12' y='10' width='24' height='32' rx='4' stroke-dasharray='2 4'/><path d='M19 10h10'/><path d='M16 30h5l3-7 5 13 4-7h6' stroke-dasharray='2 4'/><rect x='45' y='15' width='14' height='8' rx='4' stroke-dasharray='2 4'/><path d='M52 15v8'/><path d='M47 46h12'/><path d='M53 39v18' stroke-dasharray='2 4'/><circle cx='53' cy='59' r='3' stroke-dasharray='2 4'/><path d='M14 55h9'/><path d='M18.5 50v10'/></g></svg>");
+}
+
+/* Make sidebar actual content above its doodle background */
+[data-testid="stSidebar"] > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hide / soften doodles on smaller screens so they do not interfere */
+@media (max-width: 1200px) {
+    .stApp::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    [data-testid="stSidebar"]::after {
+        opacity: 0.06;
+        background-size: 54px 54px;
+    }
+}
 [data-testid="stAppViewContainer"] {
     background: transparent !important;
 }
